@@ -19,3 +19,23 @@ std::string convert_string(std::string s, int numRows) {
         res += s[i];
     return res;
 }
+// what I wrote before
+string ZigZagConversion(std::string s, int numRows) {
+    int len = s.size();
+    string res;
+    int i, j,rem_par;
+    if (numRows <= 1 || s.length() == 0)
+        return s;
+    for ( i = 0; i <  numRows; ++ i) {
+        for ( j = i; j < len; j = j + 2 * (numRows -1)) {
+            res += s[j];
+            rem_par = j + 2 *(numRows - i -1);
+            if (i != 0 && i != (numRows -1)) {
+                if (rem_par >= len)
+                    continue;
+                res += s[rem_par];
+            }
+        }
+    }
+    return res;
+}

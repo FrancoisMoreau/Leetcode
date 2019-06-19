@@ -12,3 +12,4 @@ int string_to_integer(std::string str) {
     else
         return res;
 }
+有很多ｂｕｇ，　待update

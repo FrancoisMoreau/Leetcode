@@ -5,9 +5,9 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
 
     for(auto it0 = nums.cbegin(); it0 < nums.cend() - 3; ++it0) {
-        if (*it0 * 4 > target)
+        if (4 * (*it0) > target)
             return res;
-        if (it0 != nums.cbegin() && *it0 == *(it0 + 1))
+        if (it0 != nums.cbegin() && *it0 == *(it0 - 1))
             continue;
         for (auto it1 = it0 + 1; it1 < nums.cend() - 2; ++it1) {
             int sum01 = *it0 + *it1;

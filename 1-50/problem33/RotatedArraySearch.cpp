@@ -12,6 +12,8 @@ int RotatedArraySearch::find_pivot(std::vector<int> &nums, int left, int right) 
     int mid = (left + right) / 2;
     if (nums[mid] > nums[mid + 1])
         return mid;
+    else if (nums[mid] < nums[std::max(mid - 1, 0)])
+        return mid - 1;
     else {
         if (nums[mid] > nums[right])
             return find_pivot(nums, mid + 1, right);
@@ -20,12 +22,10 @@ int RotatedArraySearch::find_pivot(std::vector<int> &nums, int left, int right) 
     }
 }
 
-
-int RotatedArraySearch::search(std::vector<int> &nums, int target) {
+int RotatedArraySearch::search2(std::vector<int> &nums, int target) {
     if (nums.empty()) return -1;
     int n = nums.size() - 1;
     int pivot =  find_pivot(nums, 0, n);
-    printf("p: %d\n",pivot);
     auto range0 = std::equal_range(nums.cbegin(), nums.cbegin() + pivot + 1, target);
     if (range0.first != range0.second)
         return (range0.first - nums.begin());
@@ -34,3 +34,25 @@ int RotatedArraySearch::search(std::vector<int> &nums, int target) {
         return (range1.first - nums.begin());
     return -1;
 }
+
+int RotatedArraySearch::search(std::vector<int> &nums, int target) {
+    int first = 0, last = nums.size() ;
+    while (first < last) {
+        const int mid = (first + last) / 2;
+        if (nums[mid] == target)
+            return mid;
+        else if (nums[first] <= nums[mid]) {
+            if (nums[first] <= target && target < nums[mid])
+                last = mid;
+            else
+                first = mid + 1;
+        } else {
+            if (nums[mid] < target && target <= nums[last - 1])
+                first = mid + 1;
+            else
+                last = mid;
+        }
+    }
+    return -1;
+}
+

@@ -12,6 +12,7 @@ private:
     int find_pivot(std::vector<int> &nums, int left, int right);
 public:
     int search(std::vector<int>& nums, int target);
+    int search2(std::vector<int>& nums, int target);
 
 };
 

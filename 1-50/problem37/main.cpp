@@ -4,52 +4,43 @@
 
 using std::vector;
 
-bool insert_check_map(vector<vector<std::unordered_set<int>>> &check_map, int row, int col, int val) {
-    if (check_map[0][row].find(val) != check_map[0][row].end()
-    || check_map[1][col].find(val) != check_map[1][col].end()
-    || check_map[2][row / 3 * 3 + col / 3].find(val) != check_map[2][row / 3 * 3 + col / 3].end())
-        return false;
-    check_map[0][row].insert(val);
-    check_map[1][col].insert(val);
-    check_map[2][row / 3 * 3 + col / 3].insert(val);
-    return true;
-
+inline void insert_check_map(vector<vector<int>> &check_map, int row, int col, int val) {
+    check_map[0][row] = check_map[0][row] ^ (1 << val);
+    check_map[1][col] = check_map[1][col] ^ (1 << val);
+    check_map[2][row / 3 * 3 + col / 3] = check_map[2][row / 3 * 3 + col / 3] ^ (1 << val);
 }
 
-void fill_sudoku(vector<vector<char>> &res, vector<vector<char>> &path,
-        vector<vector<std::unordered_set<int>>> &check_map, int idx) {
-    if (!res.empty()) return;
+void fill_sudoku(vector<vector<char>> &path,
+        vector<vector<int>> &check_map, int idx, bool &filled) {
     if (idx == 81) {
-        res = path;
+        filled = true;
         return;
     }
-    int row = idx / 9, col = idx % 9;
+    int row = idx / 9, col = idx % 9, box_idx = row / 3 * 3 + col / 3;
     if (path[row][col] == '.') {
-        int val = 1;
-        for (;  val < 10; ++val) {
-            if (insert_check_map(check_map, row, col, val)) {
+        for (int val = 1;  val < 10; ++val) {
+            if (((check_map[0][row] >> val) & 1) || ((check_map[1][col] >> val) & 1)
+            || ((check_map[2][box_idx] >> val) & 1))
+                continue;
+            else {
+                insert_check_map(check_map, row, col, val);
                 path[row][col] = '0' + val;
-                fill_sudoku(res, path, check_map, idx + 1);
+                fill_sudoku(path, check_map, idx + 1, filled);
+                if (filled) return;
                 path[row][col] = '.';
-                check_map[0][row].erase(val);
-                check_map[1][col].erase(val);
-                check_map[2][row / 3 * 3 + col / 3].erase(val);
+                insert_check_map(check_map, row, col, val);
             }
         }
-        if (val == 10) return ;
     } else {
-        fill_sudoku(res, path, check_map, idx + 1);
+        fill_sudoku(path, check_map, idx + 1, filled);
     }
 }
-
 
 
 void solveSudoku(vector<vector<char>>& board) {
-    std::vector<std::unordered_set<int>> rows(9);
-    std::vector<std::unordered_set<int>> cols(9);
-    std::vector<std::unordered_set<int>> boxes(9);
-    std::vector<vector<std::unordered_set<int>>> check_map{rows, cols, boxes};
-    std::vector<vector<char>> res;
+    vector<int> rows(9), cols(9), boxes(9);
+    vector<vector<int>> check_map{rows, cols, boxes};
+
     for (int row = 0; row < 9; ++ row) {
         for (int col = 0; col < 9; ++ col) {
             if (board[row][col] != '.') {
@@ -57,8 +48,8 @@ void solveSudoku(vector<vector<char>>& board) {
             }
         }
     }
-    fill_sudoku(res, board, check_map, 0);
-    board = res;
+    bool filled = false;
+    fill_sudoku(board, check_map, 0, filled);
 }
 
 

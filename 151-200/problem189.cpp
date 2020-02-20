@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <queue>
 
@@ -20,14 +19,4 @@ void rotate2(vector<int> &nums, int k) {
     vector<int> aux = nums;
     std::copy(aux.end() - k, aux.end(), nums.begin());
     std::copy(aux.begin(), aux.end() - k, nums.begin() + k);
-}
-
-int main() {
-    //problem 189
-    vector<int> nums189{1, 2, 3, 4, 5, 6, 7};
-    rotate(nums189, 3);
-    for (auto &i : nums189)
-        printf("%d ", i);
-
-    return 0;
 }

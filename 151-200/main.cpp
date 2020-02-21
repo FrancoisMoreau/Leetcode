@@ -4,6 +4,7 @@
 using std::cout;
 using std::endl;
 
+
 int main() {
     //problem 169
     vector<int> nums169{2,2,1,1,1,2,2};

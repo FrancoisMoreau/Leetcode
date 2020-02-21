@@ -26,7 +26,16 @@ int majorityElement_p2(vector<int> &nums) {
 //#3: bit manipulation
 // the main idea: if the number of a bit is set more than half, then it's set in final res
 
-//#4: 
+//#4: Moore Voting Algorithm
+int majorityElement_p4(vector<int> &nums) {
+    int counter = 0, majority(0);
+    for (auto i : nums) {
+        if (!counter) majority = i;
+        counter += i == majority ? 1 : -1;
+    }
+    return majority;
+}
+
 
 
 // Followings are my answer, it seems that I made a mistake

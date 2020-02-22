@@ -42,6 +42,9 @@ int main() {
     vector<int> nums217{1, 1, 2, 3};
     cout << containsDuplicate(nums217) << endl;
 
+    //problem220
+    cout << "\n\nproblem 220: \n";
+    vector<int> nums220{1,2,3,1};
 
     return 0;
 }

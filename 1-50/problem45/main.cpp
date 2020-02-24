@@ -22,8 +22,25 @@ int jump(vector<int>& nums) {
     return jump_times;
 }
 
+int jump2(vector<int> &nums) {
+    int steps = 0, max_range = 0, prev_range = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        if (prev_range >= nums.size() - 1) return steps;
+        if (i > prev_range) {
+            ++steps;
+            prev_range = max_range;
+        }
+        max_range = std::max(max_range, i + nums[i]);
+    }
+    return steps;
+}
+
 
 int main() {
+    std::vector<int> v{7,0,9,6,9,6,1,7,9,0,1,2,9,0,3};
+    // std::vector<int> v{2, 3, 1, 1, 4};
+    std::cout << jump2(v) << std::endl;
+
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }

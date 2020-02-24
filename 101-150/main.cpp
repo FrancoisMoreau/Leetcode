@@ -3,6 +3,8 @@
 #include "problem134.h"
 #include "problem118.h"
 #include "problem119.h"
+#include "problem121.h"
+#include "problem123.h"
 
 
 using std::cout;
@@ -29,6 +31,18 @@ int main() {
     for (auto &i : indexrow)
         cout << i << " ";
 
+    //problem121
+    cout << "\n\nproblem121: \n";
+    // std::vector<int> nums{7, 1, 5, 3, 6, 4};
+    std::vector<int> nums121{7, 6, 4, 3, 1};
+    cout << maxProfit2(nums121) << endl;
+
+
+    //problem123
+    cout << "\n\nproblem123: \n";
+    // std::vector<int> nums{7, 1, 5, 3, 6, 4};
+    std::vector<int> nums123{3,3,5,0,0,3,1,4};
+    cout << maxProfitIII3(nums123) << endl;
 
     return 0;
 }

@@ -2,7 +2,6 @@
 #include <queue>
 
 using std::vector;
-using std::cout;
 
 // #1: 3-times rotate
 // using std::reverse

@@ -35,6 +35,27 @@ int lengthOfLongestSubstring2(string s) {
     return maxLen;
 }
 
+// now, use the template mentioned in problem76
+int lengthOfLongestSubstring3(string s) {
+    vector<int> dict(256, 0);
+    int begin = 0, end = 0;
+    int max_Len = 0;
+    int counter = 0;
+    while (end < s.size()) {
+        if (dict[s[end]] > 0) ++counter;
+        dict[s[end]]++;
+        while (counter) {
+            if (end - begin > max_Len)
+                max_Len = end - begin;
+            if (dict[s[begin]] > 1) counter--;
+            dict[s[begin]]--;
+            begin++;
+        }
+        ++end;
+    }
+    return max_Len;
+}
+
 
 
 

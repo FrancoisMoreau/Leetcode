@@ -5,10 +5,13 @@
 #ifndef INC_51_100_PROBLEM68_H
 #define INC_51_100_PROBLEM68_H
 
+#include <vector>
+#include <string>
 
-class problem68 {
+using std::vector;
+using std::string;
 
-};
+vector<string> fullJustify(vector<string>& words, int maxWidth);
 
 
 #endif //INC_51_100_PROBLEM68_H

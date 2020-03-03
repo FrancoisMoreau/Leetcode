@@ -4,6 +4,7 @@
 
 #include "problem3.h"
 #include "problem5.h"
+#include "problem17.h"
 #include "problem20.h"
 #include "problem22.h"
 
@@ -16,11 +17,20 @@ int main() {
     //problem3
     cout << "problem3: \n";
     string str3 = "abba";
-    cout << lengthOfLongestSubstring(str3) << endl;
+    cout << lengthOfLongestSubstring3(str3) << endl;
 
     cout << "\n\nproblem5: \n";
     string str5 = "babad";
     cout << longestPalindrome(str5) << endl;
+
+    cout << "\n\nproblem17: \n";
+    string str17 = "23";
+
+    vector<string> res17 = letterCombinations(str17);
+    for (auto &i : res17) {
+        cout << i << endl;
+    }
+
 
     cout << "\n\nproblem20: \n";
     string str20 = "()";

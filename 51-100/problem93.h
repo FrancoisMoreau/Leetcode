@@ -5,10 +5,12 @@
 #ifndef INC_51_100_PROBLEM93_H
 #define INC_51_100_PROBLEM93_H
 
+#include <string>
+#include <vector>
 
-class problem93 {
+using std::string;
+using std::vector;
 
-};
-
+vector<string> restoreIpAddresses(string s);
 
 #endif //INC_51_100_PROBLEM93_H

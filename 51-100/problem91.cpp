@@ -10,8 +10,8 @@ using std::vector;
 // My original thought was wrong
 // we should implement dynamic programming here
 
-
-int numDecodings(string s) {
+// wrong code !!!
+int numDecodings_wrongcode(string s) {
     if (s[0] == '0') return 0;
     vector<int> max(s.size(), 1);
     for (int i = 1; i < s.size(); ++i) {
@@ -30,4 +30,53 @@ int numDecodings(string s) {
         }
     }
     return max[s.size() - 1];
+}
+
+//Solution
+// for '1212':
+// 1, 2, 1, (2)
+// 12, 1, (2)
+// 1, 21, (2)
+// ----------
+// 1, 2, (12)
+// 12, (12)
+// dp[i] = dp[i - 1] + dp[i - 2]
+// Recalled this and realized it in several days
+int numDecodings(string s) {
+    if (s[0] == '0') return 0;
+    vector<int> dp(s.size() + 1, 1);
+    for (int j = 2; j <= s.size(); ++j) {
+        int i = j - 1;
+        if (s[i] == '0') {
+            if (s[i - 1] == '0' || s[i - 1] > '2') return 0;
+            else dp[j] = dp[j - 2];
+        } else if (s[i] > '6') {
+            if (s[i - 1] >= '2' || s[i - 1] == '0')
+                dp[j] = dp[j - 1];
+            else dp[j] = dp[j - 1] + dp[j - 2];
+        } else {
+            if (s[i - 1] == '0' || s[i - 1] > '2') dp[j] = dp[j - 1];
+            else dp[j] = dp[j - 2] + dp[j - 1];
+        }
+    }
+    return dp.back();
+}
+
+//don't need O(n) space in fact
+int numDecodings2(string s) {
+    if (s.empty() || s[0] == '0') return 0;
+
+    int r1 = 1, r2 = 1;
+    for (int i = 1; i < s.size(); ++i) {
+        if (s[i] == '0') r1 = 0;
+        if (s[i - 1] == '1' || (s[i - 1] == '2' && s[i] <= '6')) {
+            r1 = r2 + r1;
+            r2 = r1 - r2;
+
+        } else {
+            r2 = r1;
+        }
+    }
+    return r1;
+
 }

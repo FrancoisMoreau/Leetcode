@@ -11,6 +11,7 @@ using std::endl;
 #include "problem68.h"
 #include "problem76.h"
 #include "problem91.h"
+#include "problem93.h"
 
 int main() {
     cout << "Problem76: \n";
@@ -29,8 +30,14 @@ int main() {
     }
 
     cout << "\n\nproblem91: \n";
-    string input91 = "110";
+    string input91 = "17";
+
     cout << numDecodings(input91) << endl;
+
+    cout << "\n\nproblem93: \n";
+    vector<string> res = restoreIpAddresses("0000");
+    for (auto &i : res)
+        cout << i << endl;
 
     return 0;
 }

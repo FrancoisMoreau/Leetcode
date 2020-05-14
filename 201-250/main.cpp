@@ -2,6 +2,7 @@
 
 
 #include "problem217.h"
+#include "problem218.h"
 #include "problem219.h"
 #include "problem220.h"
 #include "problem229.h"
@@ -41,6 +42,15 @@ int main() {
     cout << "\n\nproblem 217: \n";
     vector<int> nums217{1, 1, 2, 3};
     cout << containsDuplicate(nums217) << endl;
+
+    //problem218
+    cout << "\n\nproblem218: \n";
+//    vector<vector<int>> input218{{2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}};
+    vector<vector<int>> input218{{2, 4, 7}, {2, 4, 5}, {2, 4, 6}};
+    vector<vector<int>> res218 = getSkyline(input218);
+    for (auto &i : res218) {
+        printf("[%d %d]\n", i[0], i[1]);
+    }
 
     //problem220
     cout << "\n\nproblem 220: \n";

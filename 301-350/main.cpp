@@ -4,6 +4,7 @@
 #include "problem336.h"
 
 #include "problem316.h"
+#include "problem347.h"
 
 using std::cout;
 using std::endl;
@@ -28,6 +29,12 @@ int main() {
     printf("subset 0: \n");
     cout << maximumZeroSubsequenceLength({2, 9, 3, -5, 7}) << endl;
     cout << subsetsum0({4, -2, -3, -6, 2, 9}) << endl;
+
+    cout << "\n\n problem 347: \n";
+    vector<int> input_347{1,1,1,2,2,3, 4, 4, 4, 4};
+    vector<int> res = topKFrequent(input_347, 2);
+    for (auto i : res)
+        printf("%d, ", i);
 
     return 0;
 }

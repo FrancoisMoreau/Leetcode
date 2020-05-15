@@ -9,6 +9,7 @@ SET(SRC
         main.cpp
         problem273.cpp
         problem274.cpp
-        problem275.cpp)
+        problem275.cpp
+        problem295.cpp)
 
 add_executable(251_300 ${SRC})

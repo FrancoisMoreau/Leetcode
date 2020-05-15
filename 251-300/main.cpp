@@ -3,6 +3,7 @@
 #include "problem273.h"
 #include "problem274.h"
 #include "problem275.h"
+#include "problem295.h"
 
 
 using std::cout;
@@ -20,5 +21,16 @@ int main() {
 
     //problem273
     cout << numberToWords(123) << endl;
+
+    //problem295
+    cout << "\n\nproblem295: \n";
+    MedianFinder obj239;
+    obj239.addNum(-1);
+    obj239.addNum(-2);
+    cout << "median of (-1, -2): " << obj239.findMedian() << endl;
+    obj239.addNum(-3);
+    obj239.addNum(-4);
+    obj239.addNum(-5);
+    cout << "median of (-1, -2, -3, -4, -5): " << obj239.findMedian() << endl;
     return 0;
 }

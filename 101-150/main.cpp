@@ -1,10 +1,12 @@
 #include <iostream>
 
+#include "problem105.h"
 #include "problem134.h"
 #include "problem118.h"
 #include "problem119.h"
 #include "problem121.h"
 #include "problem123.h"
+#include "problem124.h"
 
 
 using std::cout;

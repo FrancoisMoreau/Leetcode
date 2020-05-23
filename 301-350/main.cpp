@@ -2,7 +2,7 @@
 
 #include "problem309.h"
 #include "problem336.h"
-
+#include "problem315.h"
 #include "problem316.h"
 #include "problem347.h"
 
@@ -35,6 +35,12 @@ int main() {
     vector<int> res = topKFrequent(input_347, 2);
     for (auto i : res)
         printf("%d, ", i);
+
+    cout << "\n\nproblem315: \n";
+    vector<int> input315{1, 9, 7, 8, 5};
+    vector<int> res315 = countSmaller4(input315);
+    for (auto i : res315)
+        printf("%d ", i);
 
     return 0;
 }

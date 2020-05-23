@@ -1,6 +1,12 @@
 #include <iostream>
 
+#include "problem887.h"
+
+using std::cout;
+using std::endl;
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    printf("problem887: \n");
+    cout << superEggDrop(2, 3) << endl;
     return 0;
 }

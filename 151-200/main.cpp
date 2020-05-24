@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include "problem153.h"
 #include "problem164.h"
 #include "problem169.h"
 #include "problem188.h"
@@ -20,6 +22,12 @@ int main() {
     //problem 164
     vector<int> nums164{3, 6, 9, 1};
     cout << maximumGap(nums164) << endl;
+
+    //problem 153
+    printf("\n\nproblem 153: \n");
+    vector<int> nums153{3, 4, 5, 1, 2};
+//    vector<int> nums153{4, 5, 6, 7, 0, 1, 2};
+    cout << findMin(nums153) << endl;
 
     return 0;
 }

@@ -7,6 +7,8 @@
 #include "problem17.h"
 #include "problem20.h"
 #include "problem22.h"
+#include "problem29.h"
+#include "problem50.h"
 
 using std::vector;
 using std::string;
@@ -41,5 +43,12 @@ int main() {
     for (auto &i : res22) {
         cout << i << endl;
     }
+
+    cout << "\n\nproblem50: \n";
+    cout << myPow(2.1, 3) << endl;
+
+    cout << "\n\nproblem29: \n";
+    cout << divide2(-2147483648, -1) << endl;
+
     return 0;
 }

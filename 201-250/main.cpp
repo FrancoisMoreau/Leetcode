@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "problem209.h"
+#include "problem211.h"
+#include "problem211.h"
 #include "problem217.h"
 #include "problem218.h"
 #include "problem219.h"
@@ -68,6 +70,18 @@ int main() {
     vector<int> input209{2, 3, 1, 2, 4, 3};
     cout << "\n\nproblem 209: \n";
     cout << minSubArrayLen(7, input209) << endl;
+
+    //problem211
+    cout << "\n\nproblem211: \n";
+    WordDictionary obj211 ;
+    obj211.addWord("bad");
+    obj211.addWord("dad");
+    obj211.addWord("mad");
+    printf("pad: %d\n", obj211.search("pad"));
+    printf("bad: %d\n", obj211.search("bad"));
+    printf(".ad: %d\n", obj211.search(".ad"));
+    printf("b..: %d\n", obj211.search("b.."));
+
 
     return 0;
 }

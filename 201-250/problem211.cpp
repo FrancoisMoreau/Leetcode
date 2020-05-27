@@ -3,8 +3,14 @@
 //
 
 #include "problem211.h"
+#include <unordered_map>
 
+#include <vector>
+
+using std::vector;
+using std::unordered_map;
 using std::string;
+
 
 //bool WordDictionary::search(std::string word) {
 //    std::set<string> *pt;
@@ -26,7 +32,7 @@ using std::string;
 // using hash
 class WordDictionary2 {
 public:
-    WordDictionary() {}
+    WordDictionary2() {}
 
     void addWord(string word) {
         words[word.size()].push_back(word);

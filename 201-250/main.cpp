@@ -8,6 +8,7 @@
 #include "problem219.h"
 #include "problem220.h"
 #include "problem229.h"
+#include "problem238.h"
 #include "problem239.h"
 #include "problem243.h"
 #include "problem244.h"
@@ -81,6 +82,13 @@ int main() {
     printf("bad: %d\n", obj211.search("bad"));
     printf(".ad: %d\n", obj211.search(".ad"));
     printf("b..: %d\n", obj211.search("b.."));
+
+    //problem238
+    cout << "\n\nproblem238: \n";
+    vector<int> input238{1, 2, 3, 4};
+    vector<int> res238 = productExceptSelf(input238);
+    for (auto i : res238)
+        cout << i << " ";
 
 
     return 0;

@@ -18,6 +18,7 @@ SET(SRC
         problem122.cpp
         problem123.cpp
         problem124.cpp
-        problem134.cpp)
+        problem134.cpp
+        problem139.cpp)
 
 add_executable(101_150 ${SRC})

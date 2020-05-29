@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 3.14)
-project(701_750)
+project(751_800)
 
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(${CMAKE_INCLUDE_CURRENT_DIR})
 
 SET(SRC
-        problem703.cpp
-        problem721.cpp
+        problem767.cpp
         main.cpp)
 
-add_executable(701_750 ${SRC})
+add_executable(751_800 ${SRC})

@@ -14,8 +14,11 @@ public:
 
     int add(int val);
 private:
+
     int K;
-    std::priority_queue<int, std::vector<int>, std::greater<int>()> minpq;
+    std::priority_queue<int, std::vector<int>, std::greater<int>> minpq;
+// wrong!
+//    std::priority_queue<int, std::vector<int>, std::greater<int>()> minpq;
 };
 
 

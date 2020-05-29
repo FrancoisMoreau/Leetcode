@@ -8,7 +8,9 @@ using std::cout;
 using std::endl;
 
 #include "problem55.h"
+#include "problem56.h"
 #include "problem68.h"
+#include "problem71.h"
 #include "problem76.h"
 #include "problem91.h"
 #include "problem93.h"
@@ -38,6 +40,16 @@ int main() {
     vector<string> res = restoreIpAddresses("0000");
     for (auto &i : res)
         cout << i << endl;
+
+    cout << "\n\nproblem56: \n";
+    vector<vector<int>> input56 = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    vector<vector<int>> res56 = merge(input56);
+    for (auto &i : res56) {
+        printf("[%d, %d]\n", i[0], i[1]);
+    }
+
+    cout << "\n\nproblem71: \n";
+    cout << simplifyPath("/home/") << endl;
 
     return 0;
 }

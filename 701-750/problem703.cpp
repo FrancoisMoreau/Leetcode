@@ -5,7 +5,7 @@
 #include "problem703.h"
 
 KthLargest::KthLargest(int k, std::vector<int> &nums) : K(k) {
-    for (auto i : nums) {
+    for (auto i : nums)  {
         minpq.push(i);
         if (minpq.size() > K)
             minpq.pop();

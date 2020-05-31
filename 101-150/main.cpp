@@ -2,6 +2,7 @@
 
 #include "problem105.h"
 #include "problem134.h"
+#include "problem140.h"
 #include "problem118.h"
 #include "problem119.h"
 #include "problem121.h"
@@ -9,8 +10,7 @@
 #include "problem124.h"
 
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 
 int main() {
@@ -45,6 +45,13 @@ int main() {
     // std::vector<int> nums{7, 1, 5, 3, 6, 4};
     std::vector<int> nums123{3,3,5,0,0,3,1,4};
     cout << maxProfitIII3(nums123) << endl;
+
+    cout << "\n\nproblem140: \n";
+    vector<std::string> input140{"cat", "cats", "and", "sand", "dog"};
+    vector<string> res140 = wordBreakII("catsanddog", input140);
+    for (auto &i : res140) {
+        cout << i << "\n";
+    }
 
     return 0;
 }

@@ -3,6 +3,7 @@
 //
 
 #include <climits>
+#include <stack>
 #include <cstdio>
 #include "problem98.h"
 
@@ -49,6 +50,25 @@ bool isValidBST2(TreeNode* root) {
 //    }
 //    return true;
 //}
+
+//inorder traversal
+bool isValidBST5(TreeNode *root) {
+    if (!root) return true;
+    std::stack<TreeNode *> stk;
+    TreeNode *pre = nullptr;
+    while (root != nullptr || !stk.empty()) {
+        while (root != nullptr) {
+            stk.push(root);
+            root = root->left;
+        }
+        root = stk.top();
+        stk.pop();
+        if (pre != nullptr && root->val <= pre->val) return false;
+        pre = root;
+        root = root->right;
+    }
+    return true;
+}
 
 class Solution {
 public:

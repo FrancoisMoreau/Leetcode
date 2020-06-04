@@ -6,7 +6,7 @@
 
 using std::string;
 
-string addStrings2(string num1, string num2) {
+string addStrings(string num1, string num2) {
     int carry = 0;
     int bit = 0, lhs = 0, rhs = 0;
     string res;
@@ -22,13 +22,14 @@ string addStrings2(string num1, string num2) {
 }
 
 // 30%, 100%
-string addString(string num1, string num2) {
+string addString2(string num1, string num2) {
     int sum = 0, i = num1.size() - 1, j = num2.size() - 1;
     string str;
     while (i >= 0 || j >= 0 || sum > 0) {
         if (i >= 0) sum += (num1[i--] - '0');
         if (j >= 0) sum += (num2[j--] - '0');
-        str.insert(0, 1 , (sum % 10) + '0');
+        str = sum % 10 + "0" + str;
+//        str.insert(0, 1 , (sum % 10) + '0');
         sum /= 10;
     }
     return str;

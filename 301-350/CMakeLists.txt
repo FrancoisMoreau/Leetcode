@@ -13,6 +13,7 @@ SET(SRC
         problem336.cpp
         problem347.cpp
         problem349.cpp
+        problem350.cpp
         )
 
 add_executable(301_350 ${SRC})

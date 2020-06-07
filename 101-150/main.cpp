@@ -8,6 +8,7 @@
 #include "problem121.h"
 #include "problem123.h"
 #include "problem124.h"
+#include "problem126.h"
 
 
 using namespace std;
@@ -51,6 +52,20 @@ int main() {
     vector<string> res140 = wordBreakII("catsanddog", input140);
     for (auto &i : res140) {
         cout << i << "\n";
+    }
+
+    // problem126
+    cout << "\n\nproblem126\n";
+//    vector<string> wordlist126{"hot","dot","dog","lot","log","cog"};
+//    string beginword126 = "hit", endword126 = "cog";
+    vector<string> wordlist126{"a", "b", "c"};
+    string beginword126 = "a", endword126 = "c";
+    vector<vector<string>> res126 = findLadders(beginword126, endword126, wordlist126);
+    for (auto &i : res126) {
+        for (auto &j : i) {
+            cout << j << " ";
+        }
+        cout << "\n";
     }
 
     return 0;

@@ -2,6 +2,7 @@
 
 #include "problem352.h"
 #include "problem378.h"
+#include "problem394.h"
 
 using std::cout;
 using std::endl;
@@ -25,5 +26,10 @@ int main() {
     print(obj352);
     obj352.addNum(6);
     print(obj352);
+
+
+    cout << "\n\nproblem394: \n";
+    cout << decodeString("2[2[c]]") << endl;
+
     return 0;
 }

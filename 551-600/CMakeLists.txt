@@ -8,6 +8,7 @@ include_directories(${CMAKE_INCLUDE_CURRENT_DIR})
 set(SRC
         main.cpp
         problem560.cpp
+        problem567.cpp
         problem572.cpp)
 
 add_executable(551_600 ${SRC})

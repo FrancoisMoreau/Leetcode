@@ -9,6 +9,7 @@ using std::endl;
 
 #include "problem55.h"
 #include "problem56.h"
+#include "problem57.h"
 #include "problem68.h"
 #include "problem71.h"
 #include "problem76.h"
@@ -50,6 +51,13 @@ int main() {
 
     cout << "\n\nproblem71: \n";
     cout << simplifyPath("/home/") << endl;
+
+
+    cout << "\n\nproblem57:\n";
+    vector<vector<int>> input57{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+    vector<int> input57_rhs = {4, 8};
+    insert(input57, input57_rhs);
+
 
     return 0;
 }

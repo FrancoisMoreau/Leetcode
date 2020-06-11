@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(${CMAKE_INCLUDE_CURRENT_DIR})
 
 SET(SRC
+        problem969.cpp
         problem973.cpp
         problem977.cpp
         problem987.cpp

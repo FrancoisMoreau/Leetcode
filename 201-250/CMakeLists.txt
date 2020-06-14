@@ -10,6 +10,7 @@ SET(SRC
         problem206.cpp
         problem207.cpp
         problem209.cpp
+        problem210.cpp
         problem211.cpp
         problem212.cpp
         problem215.cpp
@@ -24,6 +25,7 @@ SET(SRC
         problem236.cpp
         problem238.cpp
         problem239.cpp
+        problem240.cpp
         problem243.cpp
         problem244.cpp
         problem245.cpp)

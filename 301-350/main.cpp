@@ -4,6 +4,7 @@
 #include "problem336.h"
 #include "problem315.h"
 #include "problem316.h"
+#include "problem329.h"
 #include "problem347.h"
 
 using std::cout;
@@ -41,6 +42,11 @@ int main() {
     vector<int> res315 = countSmaller4(input315);
     for (auto i : res315)
         printf("%d ", i);
+
+
+    cout << "\n\n\nproblem329: \n";
+    vector<vector<int>> input329{{1, 2}};
+    cout << longestIncreasingPath(input329) << endl;
 
     return 0;
 }

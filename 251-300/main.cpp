@@ -3,6 +3,7 @@
 #include "problem273.h"
 #include "problem274.h"
 #include "problem275.h"
+#include "problem287.h"
 #include "problem295.h"
 
 
@@ -32,5 +33,10 @@ int main() {
     obj239.addNum(-4);
     obj239.addNum(-5);
     cout << "median of (-1, -2, -3, -4, -5): " << obj239.findMedian() << endl;
+
+
+    cout << "\n\nproblem 287: \n";
+    vector<int> input287{1, 3, 4, 2, 1};
+    cout << findDuplicate(input287) << endl;
     return 0;
 }

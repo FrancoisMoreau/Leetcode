@@ -7,6 +7,6 @@
 
 #include <string>
 
-int calculate(std::string s);
+int calculate227(std::string s);
 
 #endif //INC_201_250_PROBLEM227_H

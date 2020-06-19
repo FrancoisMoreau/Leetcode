@@ -8,6 +8,7 @@
 #include "problem20.h"
 #include "problem22.h"
 #include "problem29.h"
+#include "problem33.h"
 #include "problem50.h"
 
 using std::vector;
@@ -49,6 +50,10 @@ int main() {
 
     cout << "\n\nproblem29: \n";
     cout << divide2(-2147483648, -1) << endl;
+
+    cout << "\n\nproblem33: \n";
+    vector<int> input33{4, 5, 6, 7, 8, 1, 2, 3};
+    cout << search(input33, 8) << endl;
 
     return 0;
 }

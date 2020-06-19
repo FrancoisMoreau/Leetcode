@@ -14,6 +14,7 @@ SET(SRC
         problem23.cpp
         problem22.cpp
         problem29.cpp
+        problem33.cpp
         problem49.cpp
         problem50.cpp)
 

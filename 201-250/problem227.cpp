@@ -15,7 +15,7 @@ using std::string;
 
 // Although last time path problem inspired me of using sstream, I only tried getline(ss, tmp, ' ') here, sadly
 // O(n) time, O(1) space. 80%, 100%
-int calculate(string s) {
+int calculate227(string s) {
     std::stringstream ss("+" + s);
     char op;
     int n, last, ans = 0;
@@ -33,7 +33,7 @@ int calculate(string s) {
 }
 
 // more straightforward thought
-int calculate2(string s) {
+int calculate227_2(string s) {
     std::istringstream in('+' + s + '+');
     long long total = 0, term = 0, n;
     char op;
@@ -54,7 +54,7 @@ int calculate2(string s) {
 }
 
 //using stack
-int calculate4(string s) {
+int calculate227_4(string s) {
     if (s.empty()) return 0;
     s.push_back('+');
     int num = 0;

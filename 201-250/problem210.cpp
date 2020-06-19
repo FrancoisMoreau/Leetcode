@@ -75,5 +75,5 @@ vector<int> findOrder2(int numCourses, vector<vector<int>> &prerequisites) {
         }
     }
 
-    return idx == numCourses ? order : {};
+    return idx == numCourses ? order : vector<int>();
 }

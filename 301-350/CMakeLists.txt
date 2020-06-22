@@ -13,6 +13,7 @@ SET(SRC
         problem329.cpp
         problem332.cpp
         problem336.cpp
+        problem344.cpp
         problem347.cpp
         problem349.cpp
         problem350.cpp

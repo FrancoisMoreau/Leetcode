@@ -23,10 +23,12 @@ SET(SRC
         problem224.cpp
         problem227.cpp
         problem229.cpp
+        problem235.cpp
         problem236.cpp
         problem238.cpp
         problem239.cpp
         problem240.cpp
+        problem242.cpp
         problem243.cpp
         problem244.cpp
         problem245.cpp)

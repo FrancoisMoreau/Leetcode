@@ -5,10 +5,8 @@
 #ifndef INC_51_100_PROBLEM81_H
 #define INC_51_100_PROBLEM81_H
 
+#include <vector>
 
-class problem81 {
-
-};
-
+bool search(std::vector<int>& nums, int target);
 
 #endif //INC_51_100_PROBLEM81_H

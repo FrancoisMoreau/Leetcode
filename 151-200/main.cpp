@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "problem152.h"
 #include "problem153.h"
 #include "problem164.h"
 #include "problem169.h"
@@ -28,6 +28,10 @@ int main() {
     vector<int> nums153{3, 4, 5, 1, 2};
 //    vector<int> nums153{4, 5, 6, 7, 0, 1, 2};
     cout << findMin(nums153) << endl;
+
+    cout << "\n\nproblem152: \n" ;
+    vector<int> input152{-1, -2, -9, -6};
+    cout << maxProduct(input152) << endl;
 
     return 0;
 }

@@ -77,3 +77,31 @@ vector<vector<int>> kClosest4(vector<vector<int>>& points, int K) {
     copy_n(mset.begin(), K, back_inserter(ans));
     return ans;
 }
+
+// implement quicksort here!
+int QuickPartition(vector<int> &vec, int lo, int hi) {
+    int i = lo, j = hi + 1;
+    while (true) {
+        while (vec[++i] < vec[lo]) {
+            if (i == hi)
+                break;
+        }
+        while (vec[--j] > vec[lo]) {
+            if (j == lo)
+                break;
+        }
+        if (i >= j) break;
+        std::swap(vec[i], vec[j]);
+    }
+    std::swap(vec[lo], vec[j]);
+    return j;
+}
+
+void QuickSort(vector<int> &vec, int lo, int hi) {
+    if (hi <= lo)
+        return;
+    int j = QuickPartition(vec, lo, hi);
+    QuickSort(vec, lo, j - 1);
+    QuickSort(vec, j + 1, hi);
+}
+

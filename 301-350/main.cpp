@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "problem301.h"
 #include "problem309.h"
 #include "problem336.h"
 #include "problem315.h"
@@ -47,6 +48,12 @@ int main() {
     cout << "\n\n\nproblem329: \n";
     vector<vector<int>> input329{{1, 2}};
     cout << longestIncreasingPath(input329) << endl;
+
+    cout << "\n\nproblem301: \n";
+    vector<string> res301 = removeInvalidParentheses("()())()");
+    for (auto &i : res301)
+        cout << i << endl;
+
 
     return 0;
 }

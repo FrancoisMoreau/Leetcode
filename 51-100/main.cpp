@@ -10,6 +10,7 @@ using std::endl;
 #include "problem55.h"
 #include "problem56.h"
 #include "problem57.h"
+#include "problem67.h"
 #include "problem68.h"
 #include "problem71.h"
 #include "problem76.h"
@@ -58,6 +59,8 @@ int main() {
     vector<int> input57_rhs = {4, 8};
     insert(input57, input57_rhs);
 
+    cout << "\n\nproblem67: \n";
+    cout << addBinary("1010", "1011") << endl;
 
     return 0;
 }

@@ -3,6 +3,10 @@
 //
 
 #include "problem273.h"
+#include <vector>
+
+using std::vector;
+
 
 string onebit(int num) {
     switch(num) {
@@ -62,7 +66,7 @@ string threebit_helper(int num) {
     return res;
 }
 
-string numberToWords(int num) {
+string numberToWords2(int num) {
     if (!num) return "Zero";
     string result;
     if (num / 1000000000) {
@@ -90,25 +94,21 @@ string numberToWords(int num) {
 }
 
 //another short solution
-class Solution {
-public:
-    static string numberToWords(int n) {
-        if(n == 0) return "Zero";
-        else return int_string(n).substr(1);
-    }
-private:
-    static const char * const below_20[];
-    static const char * const below_100[];
-    static string int_string(int n) {
-        if(n >= 1000000000)   return int_string(n / 1000000000) + " Billion" + int_string(n - 1000000000 * (n / 1000000000));
-        else if(n >= 1000000) return int_string(n / 1000000) + " Million" + int_string(n - 1000000 * (n / 1000000));
-        else if(n >= 1000)    return int_string(n / 1000) + " Thousand" + int_string(n - 1000 * (n / 1000));
-        else if(n >= 100)     return int_string(n / 100) + " Hundred" + int_string(n - 100 * (n / 100));
-        else if(n >= 20)      return string(" ") + below_100[n / 10 - 2] + int_string(n - 10 * (n / 10));
-        else if(n >= 1)       return string(" ") + below_20[n - 1];
-        else return "";
-    }
-};
 
-const char * const Solution::below_20[] =  {"One", "Two", "Three", "Four","Five","Six","Seven","Eight","Nine","Ten", "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
-const char * const Solution::below_100[] = {"Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+string int_string(int num, const vector<string> &below_100, const vector<string> &below_20) {
+    if (num >= 1000000000) return int_string(num / 1000000000, below_100, below_20) + " Billion" + int_string(num - 1000000000 * (num / 1000000000), below_100, below_20);
+    else if (num >= 1000000) return int_string(num / 1000000, below_100, below_20) + " Million" + int_string(num - 1000000 * (num / 1000000), below_100, below_20);
+    else if (num >= 1000) return int_string(num / 1000, below_100, below_20) + " Thousand" + int_string(num - 1000 * (num / 1000), below_100, below_20);
+    else if (num >= 100) return int_string(num / 100, below_100, below_20) + " Hundred" + int_string(num - 100 * (num / 100), below_100, below_20);
+    else if (num >= 20) return string(" ") + below_100[num / 10 - 2] + int_string(num - 10 * (num / 10), below_100, below_20);
+    else if (num >= 1) return string(" ") + below_20[num - 1];
+    else return "";
+}
+
+string numberToWords(int num) {
+    vector<string> below_100{"Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    vector<string> below_20{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+                            "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    if (num == 0) return "Zero";
+    else return int_string(num, below_100, below_20).substr(1);
+}

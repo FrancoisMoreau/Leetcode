@@ -40,3 +40,19 @@ int maxPathSum(TreeNode *root) {
     maxPathDown(root, max);
     return max;
 }
+
+// My solution after 2 month, 75%, 77%
+int dfs(TreeNode *node, int &cur_max) {
+    if (!node) return 0;
+    int lhs = dfs(node->left, cur_max);
+    int rhs = dfs(node->right, cur_max);
+    cur_max = std::max(cur_max, lhs + rhs + node->val);
+    return std::max(std::max(lhs, rhs) + node->val, 0);
+}
+
+int maxPathSum3(TreeNode* root) {
+    if (!root) return 0;
+    int cur_max = root->val;
+    dfs(root, cur_max);
+    return cur_max;
+}

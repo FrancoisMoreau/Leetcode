@@ -1,9 +1,11 @@
 #include <iostream>
 
+#include "problem269.h"
 #include "problem273.h"
 #include "problem274.h"
 #include "problem275.h"
 #include "problem287.h"
+#include "problem282.h"
 #include "problem295.h"
 
 
@@ -38,5 +40,19 @@ int main() {
     cout << "\n\nproblem 287: \n";
     vector<int> input287{1, 3, 4, 2, 1};
     cout << findDuplicate(input287) << endl;
+
+    cout << "\n\nproblem 282: \n";
+    vector<string> res282 = addOperators("232", 8);
+    for (auto &i : res282)
+        cout << i << endl;
+
+    cout << "\n\nproblem269: \n";
+//    vector<string> input269{"wrt", "wrf", "er", "ett", "rftt"};
+//    vector<string> input269{"ze","yf","xd","wd","vd","ua","tt","sz","rd", "qd","pz","op","nw","mt","ln","ko","jm","il", "ho","gk","fa","ed","dg","ct","bb","ba"};
+//    vector<string> input269{"ze","yf","xd","wd","vd","ua","tt","sz","rd", "qd","pz","op","nw","mt","ln","ko","jm","il", "ho","gk","fa","ed","dg","ct","bb","ba"};
+    vector<string> input269{"zy", "zx"};
+    string res269 = alienOrder(input269);
+    cout << res269 << endl;
+
     return 0;
 }

@@ -44,3 +44,6 @@ string minWindow(string s, string t) {
 //1. use start/end 2 pointers to represent a window
 //2. move end to find a valid window (here, check counter == 0)
 //3. When a valid window is found, move start to find a smaller window
+
+// update 6 months later: Aug 2, 2020
+// remember to use 256 here!!!

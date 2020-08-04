@@ -6,6 +6,7 @@
 #include "problem315.h"
 #include "problem316.h"
 #include "problem329.h"
+#include "problem340.h"
 #include "problem347.h"
 
 using std::cout;
@@ -54,6 +55,9 @@ int main() {
     for (auto &i : res301)
         cout << i << endl;
 
+    cout << "\n\nproblem340: \n";
+    string input340 = "eqgkcwGFvjjmxutystqdfhuMblWbylgjxsxgnoh";
+    cout << lengthOfLongestSubstringKDistinct(input340, 16) << endl;
 
     return 0;
 }

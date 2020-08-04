@@ -59,3 +59,29 @@ vector<int> exclusiveTime2(int n, vector<string>& logs) {
     }
     return res;
 }
+
+// Solution after 3 month, 03/08/2020
+// 85%, 70%
+vector<int> exclusiveTime3(int n, vector<string>& logs) {
+    stack<int> stk;
+    vector<int> res(n, 0);
+    int prev = -1;
+    for (auto &log : logs) {
+        int first = log.find(':');
+        int last = log.find_last_of(":");
+        int id = stoi(log.substr(0, first));
+        int time = stoi(log.substr(last + 1)) - (last - first == 6);
+        if (last - first == 6) {
+            if (stk.empty())
+                res[0] += (time - prev);
+            else
+                res[stk.top()] += (time - prev);
+            stk.push(id);
+        } else {
+            res[id] += (time - prev);
+            stk.pop();
+        }
+        prev = time;
+    }
+    return res;
+}

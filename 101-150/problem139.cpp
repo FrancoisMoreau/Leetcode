@@ -8,6 +8,7 @@
 #include <queue>
 
 using std::set;
+using std::unordered_set;
 using std::string;
 using std::vector;
 using std::queue;
@@ -61,7 +62,7 @@ bool wordBreak2(string s, vector<string>& wordDict) {
 }
 
 // use dp, and map
-bool wordBreak(string s, vector<string> &wordDict) {
+bool wordBreak(string s, vector<string>& wordDict) {
     std::unordered_set<string> dict;
     for (auto &i : wordDict) {
         dict.emplace(i);
@@ -69,9 +70,9 @@ bool wordBreak(string s, vector<string> &wordDict) {
     int n = s.size();
     vector<bool> dp(n + 1);
     dp[0] = true;
-    for (int i = 1; i < n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         for (int j = 0; j < i; ++j) {
-            if (dict.find(s.substr(j + 1, i - j)) != dict.end() && dp[j])
+            if (dict.find(s.substr(j, i - j)) != dict.end() && dp[j])
                 dp[i] = true;
         }
     }
@@ -103,5 +104,28 @@ bool wordBreak3(string s, vector<string> &wordDict) {
     return false;
 }
 
-// dfs with memoization
-// implement it in the future
+// dfs, my solution after 2 month, 08/03/2020
+// initially without memoization, got a TLE error
+// updated with memoization, 50%, 30%
+bool dfs(const string &s, const unordered_set<string> &dict, int pos, unordered_set<int> &unmatchecd_set) {
+    if (pos == s.size()) return true;
+    if (unmatchecd_set.find(pos) != unmatchecd_set.end()) return false;
+    for (int i = pos + 1; i <= s.size(); ++i) {
+        string cur_substr = s.substr(pos, i - pos);
+        if (dict.find(cur_substr) != dict.end()) {
+            if (dfs(s, dict, i, unmatchecd_set))
+                return true;
+            else
+                unmatchecd_set.insert(i);
+        }
+    }
+    unmatchecd_set.insert(pos);
+    return false;
+}
+
+bool wordBreak5(string s, vector<string>& wordDict) {
+    unordered_set<string> dict(wordDict.begin(), wordDict.end());
+    unordered_set<int> unmatched_set;
+    return dfs(s, dict, 0, unmatched_set);
+}
+

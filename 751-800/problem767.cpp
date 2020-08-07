@@ -42,13 +42,41 @@ string reorganizeString2(string S) {
     return res;
 }
 
+// My solution after 3 month:
+// 100%, 80%
+string reorganizeString(string S) {
+    vector<pair<char, int>> counts;
+    for (int i = 0; i < 26; ++i)
+        counts.push_back({char('a' + i), 0});
+    for (char c : S)
+        counts[c - 'a'].second++;
+    sort(counts.begin(), counts.end(), [](pair<char, int> &lhs, pair<char, int> &rhs) {
+        return lhs.second > rhs.second;
+    });
+    if (counts[0].second > (S.size() + 1) / 2) return "";
+    int pos = 0;
+
+    for (int i = 0; i < S.size(); i += 2) {
+        S[i] = counts[pos].first;
+        counts[pos].second--;
+        if (counts[pos].second == 0) pos++;
+    }
+
+    for (int i = 1; i < S.size(); i += 2) {
+        S[i] = counts[pos].first;
+        counts[pos].second--;
+        if (counts[pos].second == 0) pos++;
+    }
+    return S;
+}
+
 // amazing thought:
 // The solution sort the string by occurrence, i.e. the character with most occurrence is at front. For example, aaaaabbcc.
 //Next, let i = 0 at the beginning, j = (n-1)/2+1 in the middle.
 //We can build the answer by appending s[i++] and s[j++] sequentially.
 
 // 100%, 100%, O(N)
-string reorganizeString(string S) {
+string reorganizeString6(string S) {
     vector<pair<char, int>> dict;
     dict.reserve(26);
     int n = S.size();

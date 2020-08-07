@@ -7,6 +7,7 @@
 #include <set>
 using std::vector;
 using std::set;
+using std::multiset;
 
 // Refers to problem352, 50%, 25%
 vector<vector<int>> merge(vector<vector<int>>& intervals) {
@@ -37,5 +38,24 @@ vector<vector<int>> merge2(vector<vector<int>> &intervals) {
         else
             res.push_back(intervals[i]);
     }
+    return res;
+}
+
+// My solution after 3 month: 45%, 25%
+vector<vector<int>> merge3(vector<vector<int>>& intervals) {
+    if (intervals.size() <= 1) return intervals;
+    multiset<vector<int>> mset(intervals.begin(), intervals.end());
+    int lhs = (*mset.begin())[0], rhs = (*mset.begin())[1];
+    vector<vector<int>> res;
+    for (auto it = ++mset.begin(); it != mset.end(); ++it) {
+        if ((*it)[0] > rhs) {
+            res.push_back({lhs, rhs});
+            lhs = (*it)[0];
+            rhs = (*it)[1];
+        } else {
+            rhs = std::max(rhs, (*it)[1]);
+        }
+    }
+    res.push_back({lhs, rhs});
     return res;
 }

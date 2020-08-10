@@ -18,7 +18,7 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 
 
 // Iteration, 70%, 50%
-TreeNode *lowestCommonAncestor2(TreeNode *root, TreeNode *p, TreeNode *q) {
+TreeNode *lowestCommonAncestor6(TreeNode *root, TreeNode *p, TreeNode *q) {
     while ((root->val - p->val) * (root->val - q->val) > 0)
         root = p->val < root->val ? root->left : root->right;
     return root;

@@ -21,7 +21,7 @@ bool subsearch(TreeNode *node, TreeNode *p, TreeNode *q, TreeNode *(&target)) {
     return cur || lhs || rhs;
 }
 
-TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+TreeNode* lowestCommonAncestor4(TreeNode* root, TreeNode* p, TreeNode* q) {
     TreeNode *target = nullptr;
     subsearch(root, p, q, target);
     return  target;

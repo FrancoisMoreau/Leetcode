@@ -51,3 +51,10 @@ string simplifyPath(string path) {
     return res.empty() ? "/" : res;
 }
 
+// optimization, don't need to check ".." 2 times
+//while (getline(ss, tmp, '/')) {
+//if (tmp == "" || tmp == ".") continue;
+//if (tmp != "..") stk.push_back(tmp);
+//else if (!stk.empty()) stk.pop_back();
+//}
+

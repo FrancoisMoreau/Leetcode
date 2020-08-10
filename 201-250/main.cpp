@@ -13,6 +13,7 @@
 #include "problem243.h"
 #include "problem244.h"
 #include "problem245.h"
+#include "problem247.h"
 
 
 using std::endl;
@@ -90,6 +91,11 @@ int main() {
     for (auto i : res238)
         cout << i << " ";
 
+    // problem247
+    cout << "\n\nproblem247: \n";
+    vector<string> res247 = findStrobogrammatic(3);
+    for (auto &str : res247)
+        cout << str << endl;
 
     return 0;
 }

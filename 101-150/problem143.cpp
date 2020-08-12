@@ -42,3 +42,29 @@ void reorderList(ListNode* head) {
 }
 
 // Recursion method
+// 76%, 33%
+int get_length(ListNode *head) {
+    int len = 0;
+    while (head) {
+        ++len;
+        head = head->next;
+    }
+    return len;
+}
+
+ListNode *recursion_reorder(ListNode *head, int len) {
+    if (len == 0) return nullptr;
+    if (len == 1) return head;
+    if (len == 2) return head->next;
+    ListNode *tail = recursion_reorder(head->next, len - 2);
+    ListNode *tmp = tail->next;
+    tail->next = tail->next->next;
+    tmp->next = head->next;
+    head->next = tmp;
+    return tail;
+}
+
+void reorderList2(ListNode* head) {
+    ListNode *tail = nullptr;
+    tail = recursion_reorder(head, get_length(head));
+}

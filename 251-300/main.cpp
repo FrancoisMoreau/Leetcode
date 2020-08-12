@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "problem252.h"
 #include "problem269.h"
 #include "problem273.h"
 #include "problem274.h"
@@ -53,6 +54,11 @@ int main() {
     vector<string> input269{"zy", "zx"};
     string res269 = alienOrder(input269);
     cout << res269 << endl;
+
+    cout << "\n\nproblem252: \n";
+    vector<vector<int>> input252{{465, 497}, {386, 462}, {354, 380}, {134, 189}, {199, 282}, {18, 104}, {499, 562}, {4, 14}, {111, 129}, {292, 345}};
+    cout << canAttendMeetings(input252) << endl;
+
 
     return 0;
 }

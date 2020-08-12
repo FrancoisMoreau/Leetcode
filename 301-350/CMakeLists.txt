@@ -8,8 +8,10 @@ include_directories(${CMAKE_INCLUDE_CURRENT_DIR})
 SET(SRC
         main.cpp
         problem301.cpp
+        problem304.cpp
         problem309.cpp
         problem311.cpp
+        problem314.cpp
         problem315.cpp
         problem316.cpp
         problem329.cpp

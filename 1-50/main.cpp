@@ -9,6 +9,7 @@
 #include "problem22.h"
 #include "problem29.h"
 #include "problem33.h"
+#include "problem42.h"
 #include "problem50.h"
 
 using std::vector;
@@ -54,6 +55,10 @@ int main() {
     cout << "\n\nproblem33: \n";
     vector<int> input33{4, 5, 6, 7, 8, 1, 2, 3};
     cout << search(input33, 8) << endl;
+
+    cout << "\n\nproblem42: \n";
+    vector<int> input42{0,1,0,2,1,0,1,3,2,1,2,1};
+    cout << trap(input42) << endl;
 
     return 0;
 }

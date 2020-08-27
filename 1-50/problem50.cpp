@@ -26,7 +26,18 @@ double power(double x, int n) {
     else return v * v * x;
 }
 
-double myPow(double x, int n) {
+double myPow3(double x, int n) {
     if (n < 0) return 1.0 / power(x, n);
     else return power(x, n);
 }
+
+// 5 different solutions
+// 1. nest myPow
+double myPow(double x, int n) {
+    if (n < 0) return 1 / x * myPow(1 / x, -(n + 1));
+    if (n == 0) return 1;
+    if (n == 2) return x * x;
+    if (n % 2 == 0) return myPow(myPow(x, n / 2), 2);
+    else return x * myPow(myPow(x, n / 2), 2);
+}
+

@@ -17,6 +17,5 @@ int main() {
     cout << countBattleships(input419) << endl;
 
 
-
     return 0;
 }

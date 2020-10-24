@@ -46,3 +46,27 @@ int search2(vector<int> &nums, int target) {
     }
     return -1;
 }
+
+// another simple solutin that we can memorize
+int search3(vector<int> &nums, int target) {
+    int n = nums.size();
+    int lo = 0, hi = n - 1;
+    while (lo < hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (nums[mid] > nums[hi])
+            lo = mid + 1;
+        else
+            hi = mid;
+    }
+
+    int min_idx = lo;
+    lo = target <= nums[n - 1] ? min_idx : 0;
+    hi = target > nums[n - 1] ? min_idx : n - 1;
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] < target) lo = mid + 1;
+        else hi = mid - 1;
+    }
+    return -1;
+}

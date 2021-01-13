@@ -44,3 +44,5 @@ bool canCross2(vector<int> &stones) {
     }
     return false;
 }
+
+

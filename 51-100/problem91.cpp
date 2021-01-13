@@ -7,6 +7,26 @@
 
 using std::vector;
 
+
+// solution after half year, Oct 2020
+
+int numDecodin(string s) {
+    if (s.empty()) return 0;
+    int n = s.size();
+    vector<int> dp(n + 1, 0);
+    dp[0] = 1;
+    dp[1] = s[0] == '0' ? 0 : 1;
+    for (int i = 2; i <= n; i++) {
+        int onedig = std::stoi(s.substr(i - 1, 1));
+        int twodig = std::stoi(s.substr(i - 2, 2));
+        if (onedig >= 1 && onedig <= 9)
+            dp[i] += dp[i - 1];
+        if (twodig >= 10 && twodig <= 26)
+            dp[i] += dp[i - 2];
+    }
+    return dp[n];
+}
+
 // My original thought was wrong
 // we should implement dynamic programming here
 
